@@ -5,7 +5,7 @@
 
 #### 软件架构
 软件架构说明
-
+使用spring boot集成mybatisplus+
 
 #### 安装教程
 

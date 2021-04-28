@@ -1,0 +1,70 @@
+#yml格式配置文档范例
+#服务器配置
+server:
+  #端口配置
+  port: 8181
+  #上下文
+#  servlet:
+#    context-path: /myvue
+#spring配置
+spring:
+
+  #数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/myblogdemo?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+    #使用druid数据源
+    #type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    ## Redis数据库索引（默认为0）
+    database: 0
+    ## Redis服务器地址
+    host: 127.0.0.1
+    #host: 101.200.219.73
+    ## Redis服务器连接端口
+    port: 6379
+    ## Redis服务器连接密码（默认为空）
+    password: 123456
+    jedis:
+      pool:
+        ## 连接池最大连接数（使用负值表示没有限制）
+        #spring.redis.pool.max-active=8
+        max-active: 8
+        ## 连接池最大阻塞等待时间（使用负值表示没有限制）
+        #spring.redis.pool.max-wait=-1
+        max-wait: -1
+        ## 连接池中的最大空闲连接
+        #spring.redis.pool.max-idle=8
+        max-idle: 8
+        ## 连接池中的最小空闲连接
+        #spring.redis.pool.min-idle=0
+        min-idle: 0
+    ## 连接超时时间（毫秒）
+    timeout: 1200
+   #JPA配置
+  jpa:
+    #控制台显示SQL脚本
+    show-sql: true
+    properties:
+      hibernate:
+        #配置使用支持事务的数据库方言
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        #格式化SQL代码
+        format_sql: true
+        #配置懒加载策略
+        enable_lazy_load_no_trans: true
+        #自动更新表结构
+        hbm2ddl:
+          auto: update
+#mybatisplus配置
+mybatis-plus:
+  global-config:
+    db-config:
+      #配置mybatisplus的逻辑删除功能
+      logic-delete-value: false  #默认删除的值
+      logic-not-delete-value: true #默认未删除的值
+      logic-delete-field: flag
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #在控制台输出调试信息

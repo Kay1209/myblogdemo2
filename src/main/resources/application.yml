@@ -1,0 +1,45 @@
+Tencentyunconfig:
+    accesskeyid: 1400514578
+    accesskeysecret: eb4b25010b8fa2572cf1ba38634e4b9f
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+                enable_lazy_load_no_trans: true
+                format_sql: true
+                hbm2ddl:
+                    auto: update
+        show-sql: true
+mybatis-plus:
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    global-config:
+        db-config:
+            logic-delete-field: flag
+            logic-delete-value: false
+            logic-not-delete-value: true
+server:
+    port: 8181
+    servlet:
+        context-path: /myblog
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: root
+        url: jdbc:mysql://localhost:3306/myblogdemo?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+        username: root
+    redis:
+        host: 127.0.0.1
+        jedis:
+            pool:
+                max-active: 8
+                max-idle: 8
+                max-wait: -1
+                min-idle: 0
+        port: 6379
+        timeout: 1200
+tencent:
+    connect:
+        appid: 101917891
+        appkey: abcedefghijklmnopqrst
+        recall: https://www.simoniu.com:xxxx/examdemo/members/thirdauth
